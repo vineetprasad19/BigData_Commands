@@ -1,0 +1,12 @@
+sqoop import:
+
+sqoop import --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --m 1 --table customers  --target-dir /user/cloudera/data_import
+
+
+Try executing the command again. It fails. So use append:
+sqoop import --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --m 1 --table customers --append  --target-dir /user/cloudera/data_import
+
+
+What if we want to overwrite:
+
+sqoop import --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --m 1 --table customers --delete-target-dir  --target-dir /user/cloudera/data_import
